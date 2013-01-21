@@ -1,0 +1,6 @@
+class ProfilContainer{
+Profil pro=new Profil("Darwin",757);//example wise
+void etwas(Profil something){//just for the sake of writing something here
+}
+
+}

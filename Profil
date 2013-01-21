@@ -1,0 +1,14 @@
+class Profil{
+    private String name;//name of the profile owner
+    private int nummer;//number of profile, if needed
+    Profil(String name,int nummer){//constructer, this could be edited later :D
+        this.name=name;
+        this.nummer=nummer;
+    }
+    String getname(){
+        return name;
+    }
+    int getnummer(){
+        return nummer;
+    }
+}

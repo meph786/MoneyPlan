@@ -1,0 +1,7 @@
+class Account{
+private int number;
+
+private Account(Profil pro,int number){//a new account should be contructed through the profile class
+
+}
+}

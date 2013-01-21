@@ -1,0 +1,19 @@
+class Buchung{
+private double amount;
+private String name;
+private boolean zyken;
+Buchung(double amount, String name, boolean zyken){
+this.amount= amount;
+this.name=name;
+this.zyken=zyken;
+}
+public double getAmount(){
+return amount;
+}
+public String getName(){
+return name;
+}
+public boolean getzyken(){
+return zyken;
+}
+}

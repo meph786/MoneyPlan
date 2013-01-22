@@ -1,7 +1,0 @@
-import java.util.*;
-import java.io.*;
-class MoneyplanUI{
-public static void main (String args[]){
-
-}
-}

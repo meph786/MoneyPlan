@@ -1,7 +1,75 @@
-class Account{
-private int number;
+package Model;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 
-private Account(Profil pro,int number){//a new account should be contructed through the profile class
 
-}
+public class Konto  {
+  
+private static int indexNummer = 0;	
+	/*
+	 * Ein Konto besteht aus einem aktuellen Stand sowie Buchungen, die 
+	 * diesen Stand verändert haben, oder regelmäßig verändern
+	 * Konto ist abstrakt, da es mindestens 2 verschiedene Konten gibt.
+	 * Zum einen dass, was man sich unter einem Konto vorstellt,
+	 * also so ein Konto was man bei der Bank hat. 
+	 * Zum anderen kann man das gesamte Geld was man besitzt(bei unterchiedlichen Konten)
+	 * auf einem Konto abbilden, also ein Übersichtskonto
+	 */
+	
+	//Attribute
+	private String name; //name des Kontos
+	private int nummer;
+	
+	private Konto(String name, int nummer){
+		this.name = name;
+		this.nummer = nummer;
+	}
+	public Konto newKonto(String name){
+		Konto einKonto = new Konto(name, nummer);
+		nummer++;
+		return einKonto;
+	}
+	
+	private ArrayList<einmalBuchung> buchungen = new ArrayList<einmalBuchung>(); //buchungen
+	
+	
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+
+
+
+	/**
+	 * getStand gibt den Stand des Kontos an einem bestimmten Datum
+	 * aus. Es werden alle (einmaligen) Buchungen durchgegangen, und so der Wert berechnet.
+	 * In wie weit das Sinnvoll ist, ist eine andere Frage
+	 * @param Date: das datum, an welchem der Stand angezeigt werden soll
+	 */
+	public double getStand(Date einDate){
+		double stand = 0;
+		Iterator<einmalBuchung> itr = buchungen.iterator();
+		while(itr.hasNext()){
+			einmalBuchung eineBuchung = itr.next();
+			if(einDate.after(eineBuchung.getDatum())){
+				stand = stand + eineBuchung.getWert();
+			}
+		}
+		return stand;
+		
+	}
+	public boolean equals(Konto conc){
+		if (this.name.equals(conc.getName())){
+			return true;
+		}else return false;
+	}
+	public void addBuchung(einmalBuchung dB){
+		buchungen.add(dB);
+	}
+
 }

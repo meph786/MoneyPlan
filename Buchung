@@ -1,19 +1,37 @@
-class Buchung{
-private double amount;
-private String name;
-private boolean zyken;
-Buchung(double amount, String name, boolean zyken){
-this.amount= amount;
-this.name=name;
-this.zyken=zyken;
-}
-public double getAmount(){
-return amount;
-}
-public String getName(){
-return name;
-}
-public boolean getzyken(){
-return zyken;
-}
+package Model;
+import java.util.Date;
+
+/*
+ * Eine Buchung ist eine Änderung des Kontostandes im positiven oder
+ * negativen Sinne.
+ * Buchungen können einmalig odre regelmäßig stattfinden.
+ * Ist abstract, weil zwischen einmaligen und regelmäßigen unterschieden wird
+ * 
+ */
+public abstract class Buchung {
+  //Attribute
+	private String name, beschreibung;
+	//private boolean positiv; //wenn positiv, dann gibt es Geld für das Konto oder doch durch vererbung regeln?
+	private double wert; //Wie hoch it die Buchung
+	//Datum kommt weg, weil man zwischen regelmäßigen und unregelmäßigen unterscheiden muss
+	//private Date datum; //Zeitpunkt der Buchung, in millisekunden ab 1970
+	
+	//Konstruktor
+	public Buchung(String name, String beschreibung, double wert){
+		//Die übergebenen Atribute speichern
+		this.name = name;
+		this.beschreibung = beschreibung;
+		//this.positiv = positiv;
+		this.wert = wert;
+		
+		
+		
+	}
+
+	public double getWert() {
+		return wert;
+	}
+	
+	
+
 }
